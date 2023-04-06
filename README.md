@@ -47,7 +47,7 @@ open terminal to run server,
 git clone https://gitlab.com/sureshaaluri/learning-managment-system.git
 
 # Go inside the directory
-cd lms
+cd learning-managment-system
 
 # Install dependencies for server
 cd server && npm install

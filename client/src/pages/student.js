@@ -10,6 +10,7 @@ import ChallengeStudent from './studentChallenge';
 
 import { bindActionCreators } from 'redux';
 import * as todoStudent from '../actions/studentActions';
+import * as todoInstructor from '../actions/instructorActions'
 import * as todoChallenge from '../actions/challengeActions';
 import * as todoCategory from '../actions/categoryActions';
 import * as todoAuth from '../actions/authActions';
@@ -57,6 +58,7 @@ class Student extends Component {
         } else {
             window.addEventListener('scroll', this.handleScroll.bind(this));
             this.props.actions.todoStudent.loadStudent(this.state.countLoad, 20);
+            this.props.actions.todoInstructor.loadAllInstructor();
             this.setState({
                 countLoad: this.state.countLoad + 20
             })
@@ -113,8 +115,6 @@ class Student extends Component {
         })
     }
 
-    handleInstructor(d){
-    }
 
     handleDelete(d) {
         this.setState({
@@ -168,20 +168,27 @@ class Student extends Component {
     }
 
     handleActionForm() {
+        
         var nim = this.state.editData.nim;
         var name = this.state.editData.name;
         var file = this.state.editData.file;
-        if (!name || !nim || !file) {
+        var instructor_id = this.state.editData.instructor_id;
+
+        console.log("instructor_id",instructor_id);
+
+        if (!name || !nim || !file ) {
             this.setState({
                 errorForm: 'Please enter all value'
             })
             return;
         }
+
+        // alert(this.state.typeAction)
         if (this.state.typeAction === 'add')
-            this.props.actions.todoStudent.addStudent(name.trim(), nim.trim(), file.trim());
+            this.props.actions.todoStudent.addStudent(name.trim(), nim.trim(), file.trim(), instructor_id.trim());
         if (this.state.typeAction === 'edit')
-            this.props.actions.todoStudent.editStudent(this.state.editData.id, name.trim(), nim.trim(), file.trim());
-        if (this.state.typeAction === 'delete')
+            this.props.actions.todoStudent.editStudent(this.state.editData.id, name.trim(), nim.trim(), file.trim(),instructor_id.trim());
+        if (this.state.typeAction === 'delete')        
             this.props.actions.todoStudent.deleteStudent(this.state.editData.id)
         this.setState({
             typeAction: '',
@@ -270,7 +277,8 @@ class Student extends Component {
     render() {
         const data = this.props.state.student;
         const challenge = this.props.state.challenge;
-
+        const InstructorData = this.props.state.instructor;
+        
         var challengeTitle = []
         if (challenge.length > 0)
             for (var i = 0; i < challenge.length; i++) {
@@ -280,7 +288,13 @@ class Student extends Component {
         let no = 0;
         let dataNodes = data.map(function (data) {
             if (data)
-                return (<Item key={data.id + no++} key_in={data.id + no++} data={data} challenge={challengeTitle} isRole={this.isRole} handleGetData={this.handleGetData.bind(this)} handleDelete={this.handleDelete.bind(this)} handleChallenge={this.handleChallenge.bind(this)} handleInstructor={this.handleInstructor.bind(this)} />)
+                return (<Item key={data.id + no++} key_in={data.id + no++} data={data} challenge={challengeTitle} isRole={this.isRole} handleGetData={this.handleGetData.bind(this)} handleDelete={this.handleDelete.bind(this)} handleChallenge={this.handleChallenge.bind(this)} />)
+        }.bind(this));
+
+
+        let InstructorDataNodes = InstructorData.map(function (data) {
+            if (data)
+                return (<option key={data.id} value={data.id} selected = {data.id === this.state.editData.instructor_id ? 'selected':''}>{data.name}</option>)
         }.bind(this));
 
         if (localStorage.getItem('lms') && JSON.parse(localStorage.getItem('lms')).user && JSON.parse(localStorage.getItem('lms')).token)
@@ -398,9 +412,10 @@ class Student extends Component {
 
                                                         <div className="form-group">
                                                             <label>Add Instructor</label>
-                                                            <select className="form-control" name="addInstructor" value={this.state.editData.addInstructor || ''} onChange={this.handleUpdateData.bind(this)} >
-                                                            <option value="">--select Instructor--</option>
-                                                            <option value="Male">Male</option>
+                                                            {/* <select className="form-control" name="instructor_id" value={this.state.editData.instructor_id || ''} onChange={this.handleUpdateData.bind(this)} > */}
+                                                            <select className="form-control" name="instructor_id" onChange={this.handleUpdateData.bind(this)} >
+                                                            <option value="" >--select Instructor--</option>
+                                                            {InstructorDataNodes}
                                                         </select>
                                                             <p className="help-block"></p>
                                                         </div>
@@ -445,7 +460,8 @@ function mapStateToProps(state) {
             student: state.student,
             challenge: state.challenge,
             category: state.category,
-            auth: state.auth
+            auth: state.auth,
+            instructor:state.instructor
         }
     };
 }
@@ -454,6 +470,7 @@ function mapDispatchToProps(dispatch) {
     return {
         actions: {
             todoStudent: bindActionCreators(todoStudent, dispatch),
+            todoInstructor: bindActionCreators(todoInstructor, dispatch),
             todoChallenge: bindActionCreators(todoChallenge, dispatch),
             todoCategory: bindActionCreators(todoCategory, dispatch),
             todoAuth: bindActionCreators(todoAuth, dispatch)

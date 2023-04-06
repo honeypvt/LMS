@@ -5,6 +5,7 @@ var studentSchema = mongoose.Schema({
   nim: String,
   name: String,
   file: String,
+  instructor_id:String,
   challenges: []
 });
 

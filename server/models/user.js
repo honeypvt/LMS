@@ -1,12 +1,9 @@
-// Importing Node packages required for schema
 const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
 
 const Schema = mongoose.Schema;
 
-//= ===============================
 // User Schema
-//= ===============================
 const UserSchema = new Schema({
     id: String,
     id_user: String,
@@ -40,9 +37,7 @@ const UserSchema = new Schema({
         timestamps: true
     });
 
-//= ===============================
 // User ORM Methods
-//= ===============================
 
 // Pre-save of user to database, hash password if password is modified or new
 UserSchema.pre('save', function (next) {

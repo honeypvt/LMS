@@ -92,6 +92,7 @@ router.put('/:id', function (req, res, next) {
 
 /* DELETE STUDENT */
 router.delete('/:id', function (req, res, next) {
+    console.log("req.params.id",req.params.id)
     Student.findOneAndRemove({ id: req.params.id }, function (err, post) {
         if (err) return next(err);
         var pathFile = path.join(__dirname, '../public/images/upload/' + post.file + '.png');

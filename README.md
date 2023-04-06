@@ -75,6 +75,6 @@ this application should run frontend on port 3000 , you can access it through br
 ### Default Admin User
 ```sh
 Email       :clusterit.lms@gmail.com
-Password    :Password
+Password    :Password!
 Role        :Administrator
 ```

@@ -97,10 +97,10 @@ export function loadStudentIDFailure() {
   return { type: types.LOAD_STUDENT_FAILURE }
 }
 
-export function addStudent(name, nim, file) {
+export function addStudent(name, nim, file,instructor) {
   let id = Date.now()
   return dispatch => {
-    dispatch(addData(`${id}`, name, nim, file))
+    dispatch(addData(`${id}`, name, nim, file,instructor))
     return request
       .post(`${types.SERVER_URL}student`)
       .type('form')
@@ -108,6 +108,7 @@ export function addStudent(name, nim, file) {
       .send({ name: name })
       .send({ nim: nim })
       .send({ file: file })
+      .send({instructor_id:instructor})
       .end((err, res) => {
         if (err) {
           dispatch(addStudentFailure());
@@ -127,15 +128,16 @@ export function addStudentSuccess(student) {
 }
 
 
-export function editStudent(id, name, nim, file) {
+export function editStudent(id, name, nim, file,instructor_id) {
   return dispatch => {
-    dispatch(editData(id, name, nim, file))
+    dispatch(editData(id, name, nim, file,instructor_id))
     return request
       .put(`${types.SERVER_URL}student/${id}`)
       .type('form')
       .send({ name: name })
       .send({ nim: nim })
       .send({ file: file })
+      .send({instructor_id:instructor_id})
       .end((err, res) => {
         if (err) {
           dispatch(editStudentFailure());
@@ -156,6 +158,9 @@ export function editStudentSuccess(student) {
 
 
 export function deleteStudent(id) {
+
+  alert('delete student')
+  
   return dispatch => {
     dispatch(deleteData(id))
     return request

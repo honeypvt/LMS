@@ -42,6 +42,22 @@ export function loadInstructor(skip, limit) {
     return request
       .get(`${types.SERVER_URL}instructor/${skip}/${limit}`)
       .end((err, res) => {
+        
+        if (err) {
+          dispatch(loadInstructorFailure())
+        } else {
+          dispatch(loadInstructorSuccess(res.body))
+        }
+      })
+  }
+}
+
+export function loadAllInstructor() {
+  return dispatch => {
+    dispatch(loadData());
+    return request
+      .get(`${types.SERVER_URL}instructor/`)
+      .end((err, res) => {
         if (err) {
           dispatch(loadInstructorFailure())
         } else {

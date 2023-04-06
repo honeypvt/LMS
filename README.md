@@ -60,7 +60,7 @@ open new terminal to run client
 
 ```bash
 # Go inside the directory
-cd lms
+cd learning-managment-system
 
 # Install dependencies for client
 cd client && npm install

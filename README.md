@@ -44,7 +44,7 @@ open terminal to run server,
 
 ```bash
 # Clone the repository
-git clone "repository path"
+git clone https://gitlab.com/sureshaaluri/learning-managment-system.git
 
 # Go inside the directory
 cd lms

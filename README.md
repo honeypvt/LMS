@@ -44,10 +44,10 @@ open terminal to run server,
 
 ```bash
 # Clone the repository
-git clone "repository path"
+git clone https://gitlab.com/sureshaaluri/learning-managment-system.git
 
 # Go inside the directory
-cd lms
+cd learning-managment-system
 
 # Install dependencies for server
 cd server && npm install
@@ -60,7 +60,7 @@ open new terminal to run client
 
 ```bash
 # Go inside the directory
-cd lms
+cd learning-managment-system
 
 # Install dependencies for client
 cd client && npm install
@@ -75,6 +75,6 @@ this application should run frontend on port 3000 , you can access it through br
 ### Default Admin User
 ```sh
 Email       :clusterit.lms@gmail.com
-Password    :Password
+Password    :Password!
 Role        :Administrator
 ```

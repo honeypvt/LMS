@@ -1,0 +1,7 @@
+{
+    "AppSyncApiName": "imagelibraryappsync",
+    "DynamoDBBillingMode": "PAY_PER_REQUEST",
+    "DynamoDBEnableServerSideEncryption": false,
+    "S3DeploymentBucket": "amplify-imagelibraryappsync-dev-111635-deployment",
+    "S3DeploymentRootKey": "amplify-appsync-files/d04efb56c1afec7f7cefde6bfa30934fc90c81c1"
+}

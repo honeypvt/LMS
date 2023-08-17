@@ -198,6 +198,42 @@
                 "GraphQLAPITransformerSchema3CB2AE18"
             ]
         },
+        "Mytable": { // New resource definition for the Mytable DynamoDB table
+            "Type": "AWS::CloudFormation::Stack",
+            "Properties": {
+                "TemplateURL": {
+                    "Fn::Join": [
+                        "",
+                        [
+                            "https://s3.",
+                            {
+                                "Ref": "AWS::Region"
+                            },
+                            ".",
+                            {
+                                "Ref": "AWS::URLSuffix"
+                            },
+                            "/",
+                            {
+                                "Ref": "S3DeploymentBucket"
+                            },
+                            "/",
+                            {
+                                "Ref": "S3DeploymentRootKey"
+                            },
+                            "/stacks/Mytable.json" // Update this URL to point to the Mytable CloudFormation template
+                        ]
+                    ]
+                },
+                "Parameters": {
+                    // Define parameters for the Mytable DynamoDB table, similar to the Todo table
+                }
+            },
+            "DependsOn": [
+                "GraphQLAPITransformerSchema3CB2AE18"
+            ]
+        },
+
         "CustomResourcesjson": {
             "Type": "AWS::CloudFormation::Stack",
             "Properties": {
@@ -241,7 +277,8 @@
             "DependsOn": [
                 "GraphQLAPI",
                 "GraphQLAPITransformerSchema3CB2AE18",
-                "Todo"
+                "Todo", // Make sure to include "Mytable" here if needed
+                "Mytable"
             ]
         }
     },

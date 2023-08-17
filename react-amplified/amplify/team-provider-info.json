@@ -1,0 +1,20 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-newprojectsaas-dev-141818-authRole",
+      "UnauthRoleArn": "arn:aws:iam::030448577173:role/amplify-newprojectsaas-dev-141818-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::030448577173:role/amplify-newprojectsaas-dev-141818-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-newprojectsaas-dev-141818-deployment",
+      "UnauthRoleName": "amplify-newprojectsaas-dev-141818-unauthRole",
+      "StackName": "amplify-newprojectsaas-dev-141818",
+      "StackId": "arn:aws:cloudformation:ap-south-1:030448577173:stack/amplify-newprojectsaas-dev-141818/e9da88f0-3d08-11ee-9d2f-023ce5bb8104",
+      "AmplifyAppId": "dzwfmd895jgeb"
+    },
+    "categories": {
+      "api": {
+        "newprojectsaas": {}
+      }
+    }
+  }
+}

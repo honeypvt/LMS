@@ -9,6 +9,7 @@ type Todo @model {
 }
 
 type Mytablekusha @model {
+  id: ID!
   mobilenumber: String
   email: String
   gender: String

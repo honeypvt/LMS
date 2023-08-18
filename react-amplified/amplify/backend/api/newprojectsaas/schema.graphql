@@ -13,4 +13,6 @@ type Mytablekusha @model {
   mobilenumber: String
   email: String
   gender: String
+  userame: String
+  password: String
 }

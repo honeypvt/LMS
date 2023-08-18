@@ -40,6 +40,8 @@ export const getMytablekusha = /* GraphQL */ `
       mobilenumber
       email
       gender
+      userame
+      password
       createdAt
       updatedAt
       __typename
@@ -58,6 +60,8 @@ export const listMytablekushas = /* GraphQL */ `
         mobilenumber
         email
         gender
+        userame
+        password
         createdAt
         updatedAt
         __typename

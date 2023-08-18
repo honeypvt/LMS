@@ -56,6 +56,8 @@ export const createMytablekusha = /* GraphQL */ `
       mobilenumber
       email
       gender
+      userame
+      password
       createdAt
       updatedAt
       __typename
@@ -72,6 +74,8 @@ export const updateMytablekusha = /* GraphQL */ `
       mobilenumber
       email
       gender
+      userame
+      password
       createdAt
       updatedAt
       __typename
@@ -88,6 +92,8 @@ export const deleteMytablekusha = /* GraphQL */ `
       mobilenumber
       email
       gender
+      userame
+      password
       createdAt
       updatedAt
       __typename

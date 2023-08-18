@@ -33,3 +33,37 @@ export const listTodos = /* GraphQL */ `
     }
   }
 `;
+export const getMytablekusha = /* GraphQL */ `
+  query GetMytablekusha($id: ID!) {
+    getMytablekusha(id: $id) {
+      id
+      mobilenumber
+      email
+      gender
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const listMytablekushas = /* GraphQL */ `
+  query ListMytablekushas(
+    $filter: ModelMytablekushaFilterInput
+    $limit: Int
+    $nextToken: String
+  ) {
+    listMytablekushas(filter: $filter, limit: $limit, nextToken: $nextToken) {
+      items {
+        id
+        mobilenumber
+        email
+        gender
+        createdAt
+        updatedAt
+        __typename
+      }
+      nextToken
+      __typename
+    }
+  }
+`;

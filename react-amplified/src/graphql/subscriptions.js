@@ -37,3 +37,48 @@ export const onDeleteTodo = /* GraphQL */ `
     }
   }
 `;
+export const onCreateMytablekusha = /* GraphQL */ `
+  subscription OnCreateMytablekusha(
+    $filter: ModelSubscriptionMytablekushaFilterInput
+  ) {
+    onCreateMytablekusha(filter: $filter) {
+      id
+      mobilenumber
+      email
+      gender
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onUpdateMytablekusha = /* GraphQL */ `
+  subscription OnUpdateMytablekusha(
+    $filter: ModelSubscriptionMytablekushaFilterInput
+  ) {
+    onUpdateMytablekusha(filter: $filter) {
+      id
+      mobilenumber
+      email
+      gender
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;
+export const onDeleteMytablekusha = /* GraphQL */ `
+  subscription OnDeleteMytablekusha(
+    $filter: ModelSubscriptionMytablekushaFilterInput
+  ) {
+    onDeleteMytablekusha(filter: $filter) {
+      id
+      mobilenumber
+      email
+      gender
+      createdAt
+      updatedAt
+      __typename
+    }
+  }
+`;

@@ -108,7 +108,7 @@ const App = () => {
       <input
         onChange={event => setInput('username', event.target.value)}
         style={styles.input}
-        value={state.username}
+        value={state.userame}
         placeholder="username"
       />
       <input
@@ -126,7 +126,7 @@ const App = () => {
             <p style={styles.todoMoileNumber}>{todo.mobilenumber}</p>
             <p style={styles.todoEmail}>{todo.email}</p>
             <p style={styles.todoGender}>{todo.gender}</p>
-            <p style={styles.todoUsername}>{todo.username}</p>
+            <p style={styles.todoUsername}>{todo.userame}</p>
             <p style={styles.todoPassword}>{todo.password}</p>
 
           </div>

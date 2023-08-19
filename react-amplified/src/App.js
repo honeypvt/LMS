@@ -39,7 +39,8 @@ const App = () => {
 
   async function fetchKushaTodos() {
     try {
-      const kushatodoData = await API.graphql(graphqlOperation(listMytablekushas))
+      const kushatodoData = await API.graphql(graphqlOperation(listMytablekushas));
+      console.log("kushatodoData ", kushatodoData);
       const kushatodos = kushatodoData.data.listMytablekushas.items
       setKushaTodos(kushatodos)
     } catch (err) { console.log('error fetching todos') }
@@ -60,9 +61,10 @@ const App = () => {
 
   async function kushaaddTodo() {
     try {
-      if (!state.mobilenumber || !state.email || state.gender || state.userame || state.password) return
+      if (!state.mobilenumber || !state.email || !state.gender || !state.userame || !state.password) return
       const kushatodo = { ...state }
       setKushaTodos([...kushatodos, kushatodo])
+      console.log("kushatodos",kushatodos)
       setState(secondState)
       await API.graphql(graphqlOperation(createMytablekusha, { input: kushatodo }))
     } catch (err) {

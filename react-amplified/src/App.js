@@ -45,6 +45,7 @@ const App = () => {
     } catch (err) { console.log('error fetching todos') }
   }
 
+  console.log("kushatodos ",kushatodos)
   // async function addTodo() {
   //   try {
   //     if (!formState.name || !formState.description) return

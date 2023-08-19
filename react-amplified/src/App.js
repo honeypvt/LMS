@@ -45,7 +45,7 @@ const App = () => {
     } catch (err) { console.log('error fetching todos') }
   }
 
-  console.log("kushatodos ",kushatodos)
+
   // async function addTodo() {
   //   try {
   //     if (!formState.name || !formState.description) return
@@ -106,7 +106,7 @@ const App = () => {
         placeholder="gender"
       />
       <input
-        onChange={event => setInput('username', event.target.value)}
+        onChange={event => setInput('userame', event.target.value)}
         style={styles.input}
         value={state.userame}
         placeholder="username"
@@ -126,7 +126,7 @@ const App = () => {
             <p style={styles.todoMoileNumber}>{todo.mobilenumber}</p>
             <p style={styles.todoEmail}>{todo.email}</p>
             <p style={styles.todoGender}>{todo.gender}</p>
-            <p style={styles.todoUsername}>{todo.userame}</p>
+            <p style={styles.todoUsername}>{todo.username}</p>
             <p style={styles.todoPassword}>{todo.password}</p>
 
           </div>
